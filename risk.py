@@ -1,12 +1,14 @@
-target = 53000.00
-print('-proft target:',target)
-starting_balance = 50000
-current_balance = 49116.57
-sim_balance = 51000
-print('-current balance:',current_balance)
+target = int(float(input('please enter the target profit $')))
+print('-proft target:${}'.format(target))
+# starting_balance = 50000.00
+# current_balance = 50000.00
+# sim_balance = 51000.00
+starting_balance = int(float(input('please enter the balance your account started with $')))
+current_balance = int(float(input('please enter your current balance $')))
+print('-current balance: $'.format(current_balance))
 loss = starting_balance - current_balance
-sim_loss = starting_balance-sim_balance
-print('-loss:',loss)
+# sim_loss = starting_balance-sim_balance
+print('-loss: $'.format(loss))
 total_contracts = 3
 print('-total_contracts:',total_contracts)
 # contracts = {'cl':54.06,
@@ -15,76 +17,88 @@ print('-total_contracts:',total_contracts)
 # print('-contracts:',contracts)
 # contracts_price_10 = 54.06
 # print('-contracts_price:',contracts_price_10)
-max_risk = current_balance*.01
+max_risk = current_balance*.01/3
 print('----max risk: ${}'.format(max_risk))
 contracts_tick_value_12 = 12.50 * total_contracts
 contracts_tick_value_10 = 10.00 * total_contracts
 contracts_tick_value_5 = 5.00 *total_contracts
-print('-contracts_tick_value 12:',contracts_tick_value_12)
-print('-contracts_tick_value 10:',contracts_tick_value_10)
-print('-contracts_tick_value 5:',contracts_tick_value_5)
+print('-contracts_tick_value 12:${:.2f}'.format(contracts_tick_value_12))
+print('-contracts_tick_value 10:${:.2f}'.format(contracts_tick_value_10))
+print('-contracts_tick_value 5:${:.2f}'.format(contracts_tick_value_5))
 
 
 
-if current_balance <starting_balance:
+if current_balance < starting_balance:
     print('-current balance is Less than starting balance .. continuing to perform risk analysis to reach target profit')
     current_balance = starting_balance-loss
-    print('-current_balance:',current_balance)
+    print('-current_balance: ${:.2f}'.format(current_balance))
     current_target_loss = target - current_balance
-    print('-current loss from target profit:', current_target_loss)
-    daily_target = current_target_loss/15
-    print('-daily target:',daily_target)
+    print('-current loss from target profit: ${:.2f}'.format(current_target_loss))
+    daily_target = current_target_loss/12
+    print('-daily target: ${:.2f}'.format(daily_target))
     hourly_target = daily_target/4
-    print('-hourly target',hourly_target)
+    print('-hourly target: ${:.2f}'.format(hourly_target))
 #     for contract in contracts:
     print('-Target contract size in each market to reach daily target')
     profit_size12 = daily_target/contracts_tick_value_12
     print('-profit size for $12 tick size:',profit_size12)
     max_loss12 = profit_size12 *.015
-    print('max loss:',max_loss12)
+    print('max loss: $',max_loss12*daily_target)
     profit_size10 = daily_target/contracts_tick_value_10
     print('-profit size for $10 tick size:',profit_size10)
     max_loss10 = profit_size10 *.015
-    print('max loss:',max_loss10)
+    print('max loss: $',max_loss10*daily_target)
     profit_size5 = daily_target/contracts_tick_value_5
-    print('-profit size for $5 tick size:',profit_size5)
+    print('-profit size for $5 tick size: ',profit_size5)
     max_loss5 = profit_size5 *.015
-    print('max loss:',max_loss5)
+    print('max loss: $',max_loss5*daily_target)
 
 elif current_balance == starting_balance:
-    print('-current balance is Equal than starting balance .. continuing to perform risk analysis to reach target profit')
+    print('-current balance is Less than starting balance .. continuing to perform risk analysis to reach target profit')
     current_balance = starting_balance-loss
-    print('-current_balance:',current_balance)
+    print('-current_balance: ${:.2f}'.format(current_balance))
     current_target_loss = target - current_balance
-    print('-current loss from target profit:', current_target_loss)
-    daily_target = current_target_loss/15
-    print('-daily target:',daily_target)
+    print('-current loss from target profit: ${:.2f}'.format(current_target_loss))
+    daily_target = current_target_loss/12
+    print('-daily target: ${:.2f}'.format(daily_target))
     hourly_target = daily_target/4
-    print('-hourly target',hourly_target)
+    print('-hourly target: ${:.2f}'.format(hourly_target))
 #     for contract in contracts:
     print('-Target contract size in each market to reach daily target')
     profit_size12 = daily_target/contracts_tick_value_12
     print('-profit size for $12 tick size:',profit_size12)
+    max_loss12 = profit_size12 *.015
+    print('max loss: $',max_loss12*daily_target)
     profit_size10 = daily_target/contracts_tick_value_10
     print('-profit size for $10 tick size:',profit_size10)
+    max_loss10 = profit_size10 *.015
+    print('max loss: $',max_loss10*daily_target)
     profit_size5 = daily_target/contracts_tick_value_5
-    print('-profit size for $5 tick size:',profit_size5)
+    print('-profit size for $5 tick size: ',profit_size5)
+    max_loss5 = profit_size5 *.015
+    print('max loss: $',max_loss5*daily_target)
 
 elif current_balance >= starting_balance:
-    print('-current balance is Greater than starting balance .. continuing to perform risk analysis to reach target profit')
-    current_balance = starting_balance-sim_loss
-    print('-current_balance:',current_balance)
+    print('-current balance is Less than starting balance .. continuing to perform risk analysis to reach target profit')
+    current_balance = starting_balance-loss
+    print('-current_balance: ${:.2f}'.format(current_balance))
     current_target_loss = target - current_balance
-    print('-current loss from target profit:', current_target_loss)
-    daily_target = current_target_loss/15
-    print('-daily target:',daily_target)
+    print('-current loss from target profit: ${:.2f}'.format(current_target_loss))
+    daily_target = current_target_loss/12
+    print('-daily target: ${:.2f}'.format(daily_target))
     hourly_target = daily_target/4
-    print('-hourly target',hourly_target)
+    print('-hourly target: ${:.2f}'.format(hourly_target))
 #     for contract in contracts:
     print('-Target contract size in each market to reach daily target')
     profit_size12 = daily_target/contracts_tick_value_12
     print('-profit size for $12 tick size:',profit_size12)
+    max_loss12 = profit_size12 *.015
+    print('max loss: $',max_loss12*daily_target)
     profit_size10 = daily_target/contracts_tick_value_10
     print('-profit size for $10 tick size:',profit_size10)
+    max_loss10 = profit_size10 *.015
+    print('max loss: $',max_loss10*daily_target)
     profit_size5 = daily_target/contracts_tick_value_5
-    print('-profit size for $5 tick size:',profit_size5)
+    print('-profit size for $5 tick size: ',profit_size5)
+    max_loss5 = profit_size5 *.015
+    print('max loss: $',max_loss5*daily_target)
