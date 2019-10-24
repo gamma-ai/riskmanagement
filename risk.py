@@ -5,10 +5,10 @@ print('-proft target:${}'.format(target))
 # sim_balance = 51000.00
 starting_balance = int(float(input('please enter the balance your account started with $')))
 current_balance = int(float(input('please enter your current balance $')))
-print('-current balance: $'.format(current_balance))
+print('-current balance: ${}'.format(current_balance))
 loss = starting_balance - current_balance
 # sim_loss = starting_balance-sim_balance
-print('-loss: ${:.2f}'.format(loss))
+print('-loss: ${}'.format(loss))
 total_contracts = 3
 print('-total_contracts:',total_contracts)
 # contracts = {'cl':54.06,
