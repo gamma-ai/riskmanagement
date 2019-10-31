@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 target = int(float(input('please enter the target profit $')))
 print('-proft target:${}'.format(target))
 # starting_balance = 50000.00
@@ -9,7 +10,8 @@ print('-current balance: ${}'.format(current_balance))
 loss = starting_balance - current_balance
 # sim_loss = starting_balance-sim_balance
 print('-loss: ${}'.format(loss))
-total_contracts = 3
+#total_contracts = 3
+total_contracts = int(input('please enter the amount of contracts you would like to trade'))
 print('-total_contracts:',total_contracts)
 # contracts = {'cl':54.06,
 #               'es':2980.00,
@@ -25,8 +27,6 @@ contracts_tick_value_5 = 5.00 *total_contracts
 print('-contracts_tick_value 12:${:.2f}'.format(contracts_tick_value_12))
 print('-contracts_tick_value 10:${:.2f}'.format(contracts_tick_value_10))
 print('-contracts_tick_value 5:${:.2f}'.format(contracts_tick_value_5))
-
-
 
 if current_balance < starting_balance:
     print('-current balance is Less than starting balance .. continuing to perform risk analysis to reach target profit')
