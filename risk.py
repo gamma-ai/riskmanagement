@@ -11,7 +11,7 @@ loss = starting_balance - current_balance
 # sim_loss = starting_balance-sim_balance
 print('-loss: ${}'.format(loss))
 #total_contracts = 3
-total_contracts = int(input('please enter the amount of contracts you would like to trade'))
+total_contracts = int(input('please enter the amount of contracts you would like to trade '))
 print('-total_contracts:',total_contracts)
 # contracts = {'cl':54.06,
 #               'es':2980.00,
